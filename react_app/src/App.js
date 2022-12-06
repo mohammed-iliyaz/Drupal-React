@@ -8,7 +8,7 @@ const LIST_URL = 'http://localhost/decoupledrupalReact/jsonapi/node/article';
 function App() {
   const [article, setarticle] = useState([])
 //testing
-    
+
 const BASE_URL = "http://localhost/decoupledrupalReact/jsonapi/node/article";
 
 const instance = axios.create({
@@ -16,7 +16,7 @@ const instance = axios.create({
   headers: {
       "Content-Type": "application/json",
       "format": "api_json"
-     
+
   },
   mode:"cors",
 });
@@ -27,23 +27,23 @@ const instance = axios.create({
                 const a = response.data;
                 console.log(a.data)
                 setarticle(a.data)
-                
+
                 resolve(response);  // response.data.list
-                
+
             } catch (error) {
                 console.log(error);
                 reject(error);
             }
         });
     };
-     
+
      useEffect(() => {
       const a = apiCall();
     //   fetch(LIST_URL,{mode:'cors',
     //   headers: {
     //     "Content-Type": "application/json",
-       
-       
+
+
     // },})
     //   .then(res => {
     //       const article = res.data;
@@ -53,10 +53,10 @@ const instance = axios.create({
     //   })
     //   .catch((error) => {
     //       console.log(error);
-    //   })
+    //   })sdfs
 
      }, [])
-      
+
       return (
     <div className="App">
       <Articles article={article}/>
